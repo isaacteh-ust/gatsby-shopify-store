@@ -30,8 +30,12 @@ export const query = graphql`
 `
 export default ({data}) => (
   <>
-    <h1>The RAW page data</h1>
-    <pre>{JSON.stringify(data, null, 2)}</pre>
+    <h1>Sofa for sale!</h1>
+    <div className="products-grid">
+      {data.allShopifyProduct.nodes.map(product => (
+        <Product key={product.id} product={product}/>
+      ))}
+    </div>
   </>
 )
 
