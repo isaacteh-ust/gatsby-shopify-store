@@ -1,25 +1,38 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 
-const ComponentName = ({ data }) => <pre>{JSON.stringify(data, null, 4)}</pre>
 export const query = graphql`
   {
     allShopifyProduct {
-      edges {
-        node {
-          id
-          title
-          handle
-          productType
-          vendor
-          variants {
-            id
-            title
-            price
+      nodes {
+        title
+        description
+        id
+        variants {
+          shopifyId
+          priceV2 {
+            amount
+            currencyCode
+          }
+        }
+        images {
+          localFile {
+            childImageSharp {
+              fixed(width: 300) {
+                ...GatsbyImageSharpFixed_withWebp_tracedSVG
+              }
+            }
           }
         }
       }
     }
   }
 `
-export default ComponentName
+export default ({data}) => (
+  <>
+    <h1>The RAW page data</h1>
+    <pre>{JSON.stringify(data, null, 2)}</pre>
+  </>
+)
+
+
