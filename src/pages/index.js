@@ -33,7 +33,7 @@ export default ({data}) => (
     <h1>Sofa for sale!</h1>
     <div className="products-grid">
       {data.allShopifyProduct.nodes.map(product => (
-        <Product key={product.id} product={product}/>
+        <Product={product.id} product={product}/>
       ))}
     </div>
   </>
