@@ -17,7 +17,7 @@ module.exports = {
       resolve: 'gatsby-source-shopify',
       options: {
         shopName: 'digital-coe-jamstack-ecommerce',
-        accessToken: process.env.GATSBY_SHOPIFY_STOREFRONT_TOKEN,
+        accessToken: 'c5f2d6b52d0a27b341dc46c883565373',
         includeCollections: ["shop"],
       }
     }
