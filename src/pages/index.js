@@ -1,5 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Product from '../components/Product'
+import './index.css'
 
 export const query = graphql`
   {
@@ -33,7 +35,7 @@ export default ({data}) => (
     <h1>Sofa for sale!</h1>
     <div className="products-grid">
       {data.allShopifyProduct.nodes.map(product => (
-        <Product={product.id} product={product}/>
+        <Product key={product.id} product={product}/>
       ))}
     </div>
   </>
