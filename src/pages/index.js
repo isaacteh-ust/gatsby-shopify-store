@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Product from '../components/Product'
 import './index.css'
+import * as Sentry from "@sentry/browser";
+import { Integrations } from "@sentry/tracing";
 
 export const query = graphql`
   {
@@ -41,4 +43,8 @@ export default ({data}) => (
   </>
 )
 
-
+Sentry.init({
+  dsn: "https://5cde761432ab499c962d126b77e45604@o525042.ingest.sentry.io/5638484",
+  integrations: [new Integrations.BrowserTracing()],
+  tracesSampleRate: 1.0,
+});
