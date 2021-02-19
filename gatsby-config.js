@@ -5,6 +5,12 @@ require("dotenv").config({
 module.exports = {
   plugins: [
     'gatsby-plugin-sharp',
+    {
+      resolve: "@sentry/gatsby",
+      options: {
+        dsn: "https://407cf15d3820426b98cfcd96540aa064@o525042.ingest.sentry.io/5643797",
+        sampleRate: 0.7,
+      },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-filesystem',
